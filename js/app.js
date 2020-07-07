@@ -16,10 +16,6 @@ let rating2 = document.querySelector(".rating2");
 const searchBtn1 = document.querySelector(".leftBtn");
 const searchBtn2 = document.querySelector(".rightBtn");
 
-const compareMovies = () => {
-
-}
-
 const getMovie1 = async (e) => {
     e.preventDefault();
     query1 = document.querySelector(".search1").value;
@@ -57,5 +53,18 @@ const getMovie2 = async (e) => {
     }
 }
 
+const compareMovies = () => {
+    let criticRating1 = document.querySelector(".critic-rating1");
+    let criticRating2 = document.querySelector(".critic-rating2");
+    if(parseFloat(rating1) > parseFloat(rating2)){
+        criticRating1.style.backgroundColor = "green";
+        criticRating2.style.backgroundColor = "red";
+    }else if(parseFloat(rating1) < parseFloat(rating2)){
+        criticRating1.style.backgroundColor = "red";
+        criticRating2.style.backgroundColor = "green";
+    }
+}
+
+compareMovies();
 searchBtn1.addEventListener("click", getMovie1);
 searchBtn2.addEventListener("click", getMovie2);
