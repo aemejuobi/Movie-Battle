@@ -44,9 +44,14 @@ const getMovie1 = async (e) => {
 const getMovie2 = async (e) => {
     e.preventDefault();
     query2 = document.querySelector(".search2").value;
-    search2 = `http://www.omdbapi.com/?t=${query2}&apikey=${apiKey}`;
+    // search2 = `https://www.omdbapi.com/?t=${query2}&apikey=${apiKey}`;
 
-    const res = await axios.get(search2);
+    const res = await axios.get('https://www.omdbapi.com/', {
+        params: {
+            apiKey,
+            t: query2
+        }
+    });
     try{
         console.log(res.data);
         img2.src = res.data.Poster;
